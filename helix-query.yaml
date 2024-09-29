@@ -1,15 +1,18 @@
 version: 1
-# See https://www.hlx.live/docs/setup-indexing.
 
-indices:
-  site:
+indices :
+  site :
     include:
-      - '**'
+      - "**"
     exclude:
-      - '/feedback-form'
+      - '/search'
+      - '/modals'
     target: /query-index
-    # target: SharePoint URL of your query index, e.g. <shared-folder-url>/query-index.xlsx
     properties:
+      author:
+        select: head > meta[name="author"]
+        value: |
+          attribute(el, 'content')
       title:
         select: head > meta[property="og:title"]
         value: |
@@ -18,15 +21,15 @@ indices:
         select: head > meta[property="og:image"]
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
-      blocks:
-        select: none
-        value: |
-            headers['blocks']
       description:
         select: head > meta[name="description"]
         value: |
           attribute(el, 'content')
-      pagetitle:
-        selectfirst: h1
-        value:
-          textContent(el)
+      template:
+        select: head > meta[name="template"]
+        value: |
+          attribute(el, 'content')
+      keywords:
+        select: head > meta[name="keywords"]
+        value: |
+          attribute(el, 'content')
