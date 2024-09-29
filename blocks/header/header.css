@@ -16,7 +16,7 @@ header {
     transition: padding-bottom 0s ease, padding-top 0s;
   }
 
-  header .nav-wrapper .before-navwrapper {
+  header .nav-wrapper.before-navwrapper {
     padding-top: 15px;
     padding-bottom: 15px;
     box-shadow: 0 8px 20px 0 var(--opecity-color-42);

@@ -1,14 +1,16 @@
 .about-cards-container .default-content-wrapper h1 {
   font-weight: normal;
   font-size: var(--heading-font-size-xxl);
-  margin-bottom: 45px;
-  margin-top: 20px;
+  margin-bottom: 13.5px;
+  margin-top: 27px;
 }
 
 .about-cards-container .default-content-wrapper h2,
 .about-cards-container .default-content-wrapper h3 {
   font-weight: normal;
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-xl);
+  margin-bottom: 13.5px;
+  margin-top: 27px;
 }
 
 .about-cards-container .default-content-wrapper h3 {
