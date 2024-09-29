@@ -147,4 +147,8 @@ export default async function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
   }
+
+  const beforehr = document.getElementsByClassName('carousel-container')[1];
+  const hrDiv = document.createElement('div');
+  beforehr.appendChild(hrDiv).classList.add('hr-div');
 }

@@ -16,5 +16,32 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  const classes = ['sections'];
+  classes.forEach((c, i) => {
+    const section = footer.children[i];
+    if (section) section.classList.add(`footer-nav-${c}`);
+  });
+
+  // footer.classList.add('footer-nav-brand');
+  const footerNav = footer.querySelector('.footer-nav-sections');
+  // const brandLink = footerNav.querySelector('.button');
+  if (footerNav) {
+    const brandFooterImage = document.createElement('img');
+    const brandFooterLogoLink = document.createElement('a');
+    brandFooterImage.src = '../../icons/wknd-logo.svg';
+    brandFooterImage.alt = 'Brand Logo';
+    brandFooterImage.classList.add('footer-logo-img');
+    brandFooterLogoLink.href = '/us/en';
+    brandFooterLogoLink.classList.add('footer-logo-link');
+    footerNav.prepend(brandFooterImage);
+    brandFooterLogoLink.appendChild(brandFooterImage);
+
+    footerNav.prepend(brandFooterLogoLink);
+    footer.prepend(footerNav);
+  }
+
   block.append(footer);
+
+  const follow = document.querySelector('footer div.default-content-wrapper p');
+  follow.classList.add('followus');
 }
